@@ -4,8 +4,6 @@ import analyze.service.InputOutputService;
 import analyze.util.CommandLineUtil;
 import org.apache.commons.cli.ParseException;
 
-import java.io.FileInputStream;
-
 import static analyze.util.CommandLineUtil.*;
 
 public class Main {
