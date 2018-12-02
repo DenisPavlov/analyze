@@ -30,7 +30,7 @@ public class InputOutputService implements AutoCloseable {
         }
     }
 
-    public Record read() throws IOException {
+    private Record read() throws IOException {
         int index = reader.getLineNumber();
         String line = reader.readLine();
         if (line == null) return null;

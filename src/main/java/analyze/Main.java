@@ -17,7 +17,8 @@ public class Main {
             System.exit(0);
         }
 
-        try(InputOutputService ioService = new InputOutputService(new FileInputStream("access.log"), System.out)) {
+//        try(InputOutputService ioService = new InputOutputService(new FileInputStream("access.log"), System.out)) {
+        try(InputOutputService ioService = new InputOutputService()) {
             Analizator analizator = new Analizator(MIN_DEGREE, RESPONSE_TIME, ioService);
             analizator.analyze();
         } catch (Exception e) {

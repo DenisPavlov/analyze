@@ -26,15 +26,9 @@ public class InputOutputServiceTest {
     }
 
     @Test
-    public void read() throws IOException {
-        Record record = ioService.read();
-        assertEquals(RECORD_0, record);
-    }
-
-    @Test
     public void readList() throws IOException {
         List<Record> records = ioService.read(0, 3);
-        List<Record> actual = Arrays.asList(RECORD_0, RECORD_1, RECORD_2);
+        List<Record> actual = Arrays.asList(RECORD_0, RECORD_1, RECORD_2, RECORD_3);
         assertThat(actual, is(records));
     }
 
