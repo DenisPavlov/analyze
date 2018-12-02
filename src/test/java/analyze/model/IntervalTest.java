@@ -1,6 +1,5 @@
 package analyze.model;
 
-import org.junit.Before;
 import org.junit.Test;
 
 import static analyze.TestData.*;

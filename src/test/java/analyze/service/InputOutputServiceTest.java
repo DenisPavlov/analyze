@@ -22,7 +22,7 @@ public class InputOutputServiceTest {
     public void before() throws IOException {
         out = new ByteArrayOutputStream();
         ClassLoader classLoader = getClass().getClassLoader();
-        ioService = new InputOutputService(new FileInputStream(classLoader.getResource("access.log").getFile()), out);
+        ioService = new InputOutputService(new FileInputStream(new File("src/test/java/resources/access.log")), out);
     }
 
     @Test

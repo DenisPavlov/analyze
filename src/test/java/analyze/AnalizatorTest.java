@@ -4,29 +4,27 @@ import analyze.service.InputOutputService;
 import org.junit.Before;
 import org.junit.Test;
 
-import java.io.ByteArrayOutputStream;
-import java.io.FileInputStream;
-import java.io.FileNotFoundException;
-import java.io.IOException;
+import java.io.*;
 
 import static org.junit.Assert.assertEquals;
 
 public class AnalizatorTest {
 
     private ByteArrayOutputStream out;
-    ClassLoader classLoader;
+//    ClassLoader classLoader;
     Analizator analizator;
 
     @Before
     public void setUp() throws Exception {
         out = new ByteArrayOutputStream();
-        classLoader = getClass().getClassLoader();
+//        classLoader = getClass().getClassLoader();
     }
 
     // TODO: 02.12.18 add description, has 3 invalid records podryad
     @Test
     public void analyze201() throws IOException {
-        InputOutputService ioService = new InputOutputService(new FileInputStream(classLoader.getResource("201_records.log").getFile()), out);
+//        new File("src/test/resources/201_records.log")
+        InputOutputService ioService = new InputOutputService(new FileInputStream(new File("src/test/java/resources/201_records.log")), out);
         analizator = new Analizator(98, 400, ioService);
         analizator.analyze();
         String expected = out.toString();
