@@ -7,11 +7,9 @@ import java.io.PrintWriter;
 
 import static org.slf4j.LoggerFactory.getLogger;
 
-// TODO: 26.11.18 add description and tests
 public class CommandLineUtil {
     private static final Logger log = getLogger(CommandLineUtil.class);
 
-    // TODO: 26.11.18 add description variables
     public static double MIN_DEGREE;
     public static double RESPONSE_TIME;
 
@@ -38,7 +36,6 @@ public class CommandLineUtil {
     }
 
     public static void parse(String[] args) throws ParseException {
-        // TODO: 26.11.18 add logs
         if (args.length == 0) throw new ParseException("args not found");
 
         CommandLineParser cmdLinePosixParser = new PosixParser();// создаем Posix парсер
@@ -63,7 +60,7 @@ public class CommandLineUtil {
     public static void printHelp() {
         final HelpFormatter helpFormatter = new HelpFormatter();// создаем объект для вывода help`а
 
-        PrintWriter writer = new PrintWriter(System.out);// TODO: 02.12.18 maybe my writer ???
+        PrintWriter writer = new PrintWriter(System.out);
         helpFormatter.printHelp(
                 writer,// куда печатаем help,
                 120, // ширина строки вывода

@@ -1,4 +1,2 @@
-1. check to loging redirect
-2. settings logging
-3. if all are red need to install lombok plugin
-4. maybe add tests buffer
+1. create jar file - mvn package
+2. programm run - cat access.log | java -jar analyze -u 90.0 -t 100

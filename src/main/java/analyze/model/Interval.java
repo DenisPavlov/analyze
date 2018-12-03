@@ -7,7 +7,6 @@ import java.time.format.DateTimeFormatter;
 
 import static analyze.util.Util.isRecordValid;
 
-// TODO: 26.11.18 add description
 @Data
 public class Interval {
     private LocalDateTime start;
@@ -29,7 +28,6 @@ public class Interval {
     public Interval() {
     }
 
-    // TODO: 30.11.18 add description and tests
     public void addRecord(Record record, double responseTime) {
         if (start == null) start = record.getDateTime();
         incrementCount(record, responseTime);
@@ -37,7 +35,6 @@ public class Interval {
         end = record.getDateTime();
     }
 
-    // TODO: 30.11.18 add description and tests
     private void incrementCount(Record record, double responseTime){
         if (isRecordValid(record, responseTime)) {
             goodCount++;
@@ -59,7 +56,6 @@ public class Interval {
     }
 
     //percent
-    // TODO: 30.11.18 add description and tests
     private void changeAvailabilityLevel(){
         availabilityLevel = 100.0d - ((double)badCount/(badCount + goodCount)) * 100d;
     }

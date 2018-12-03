@@ -9,11 +9,13 @@ import java.io.*;
 import java.util.*;
 import java.util.stream.Collectors;
 
-// TODO: 01.12.18 add description and tests
 public class InputOutputService implements AutoCloseable {
     private final LineNumberReader reader;
     private final BufferedWriter writer;
     private final Buffer buffer;
+
+    //buffer size
+    private int bufferCapacity = 100;
 
     private static final Logger log = LoggerFactory.getLogger(InputOutputService.class);
 
@@ -24,7 +26,7 @@ public class InputOutputService implements AutoCloseable {
     public InputOutputService(InputStream inputStream, OutputStream outputStream) throws IOException {
         this.reader = new LineNumberReader(new BufferedReader(new InputStreamReader(inputStream)));
         this.writer = new BufferedWriter(new OutputStreamWriter(outputStream));
-        buffer = new Buffer(new HashMap<>(), 0, 0, 100);// TODO: 02.12.18 capacity
+        buffer = new Buffer(new HashMap<>(), 0, 0, bufferCapacity);
         for (int i = 0; i < buffer.capacity; i++){
             read();
         }
@@ -40,7 +42,6 @@ public class InputOutputService implements AutoCloseable {
         return record;
     }
 
-    // TODO: 01.12.18 add description and tests, check to buffer capacity
     public List<Record> read(int from, int to) throws IOException {
 
         List<Record> records = buffer.getRecords().stream()
@@ -57,7 +58,6 @@ public class InputOutputService implements AutoCloseable {
         return records;
     }
 
-    // TODO: 02.12.18 refactor method
     public Record read(int index) throws IOException {
         List<Record> recordList = read(index, index+1);
         return recordList.get(0);

@@ -8,7 +8,6 @@ import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.Objects;
 
-// TODO: 26.11.18 add description
 @Data
 public class Record {
     private final int code;

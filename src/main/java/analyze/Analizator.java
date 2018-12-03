@@ -16,7 +16,8 @@ public class Analizator {
     private double responseTime;
     private InputOutputService ioService;
 
-    private static final int COUNT = 99; // TODO: 01.12.18 add description
+    //выборка
+    private static final int COUNT = 99;
     private static final Logger log = LoggerFactory.getLogger(Analizator.class);
 
 
@@ -26,9 +27,9 @@ public class Analizator {
         this.ioService = ioService;
     }
 
-    public void analyze() {
+    public void analyze() throws IOException {
         log.info("Start analyze");
-        try { // TODO: 02.12.18 refactor try catch
+        try {
             Record record = ioService.read(0);
             for (int index = 1; record != null; record = ioService.read(index++)) {
                 log.debug("record index = {}, req = {}, code = {}", record.getIndex(), record.getRequestTime(), record.getCode());
@@ -45,6 +46,7 @@ public class Analizator {
                     }
                 }
             }
+            ioService.close();
         } catch (Exception e) {
             e.printStackTrace();
         }
